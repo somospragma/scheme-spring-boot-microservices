@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: SCHEME-V1
+server:
+  host: localhost
+  port: 7033
+  compression:
+    enabled: true
+  http2:
+    enabled: true
+person:
+  database:
+    driver: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/scheme_db?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    dialect: org.hibernate.dialect.MySQL8Dialect
+    show_sql: false
