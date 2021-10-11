@@ -3,7 +3,7 @@ spring:
     name: SCHEME-V1
 server:
   host: localhost
-  port: 7033
+  port: 3000
   compression:
     enabled: true
   http2:
