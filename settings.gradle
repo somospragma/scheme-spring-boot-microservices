@@ -1,1 +1,9 @@
-rootProject.name = 'scheme-v2'
+rootProject.name = 'scheme-v1'
+include 'domain'
+include 'rest'
+include 'app'
+include 'config'
+include 'exception'
+include 'model'
+include 'utils'
+

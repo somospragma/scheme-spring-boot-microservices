@@ -1,0 +1,10 @@
+group 'co.com.scheme.v1.model'
+version '1.0.0'
+
+dependencies {
+    compile project(':domain')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}

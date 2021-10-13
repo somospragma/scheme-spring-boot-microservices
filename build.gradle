@@ -1,9 +1,4 @@
-plugins {
-	id 'org.springframework.boot' version '2.5.5'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
-}
-
+/*
 group = 'co.com.scheme.v1'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -29,4 +24,87 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}*/
+/*
+plugins {
+	id 'java'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
+
+allprojects {
+	group = 'co.com.scheme.v1'
+	version = '0.0.1-SNAPSHOT'
+
+	apply plugin: 'java'
+
+	repositories {
+		maven { url "http://repo.maven.apache.org/maven2" }
+		mavenCentral()
+	}
+}
+
+subprojects {
+	sourceCompatibility = '11'
+	targetCompatibility = '11'
+
+	apply plugin: 'io.spring.dependency-management'
+
+	dependencyManagement {
+		dependencies {
+			dependency 'org.springframework.boot:spring-boot-starter-web:2.5.5.RELEASE'
+		}
+	}
+}
+
+plugins {
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+*/
+
+plugins {
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'co.com.scheme.v1'
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'java-library'
+	apply plugin: 'io.spring.dependency-management'
+
+	
+	version = '2.0.0'
+	sourceCompatibility = '11'
+	targetCompatibility = '11'
+
+	repositories {
+		mavenCentral()
+	}
+
+	test {
+		useJUnitPlatform()
+	}
+
+	dependencyManagement {
+		imports {
+			mavenBom('org.springframework.boot:spring-boot-dependencies:2.4.1')
+		}
+	}
+	
+	dependencies {		
+		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+		implementation 'org.springframework.boot:spring-boot-starter-validation'
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		implementation 'io.springfox:springfox-swagger2:2.9.2'
+		runtimeOnly 'mysql:mysql-connector-java'
+		implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+		implementation group: 'io.springfox', name: 'springfox-bean-validators', version: '2.9.2'
+		testImplementation('org.springframework.boot:spring-boot-starter-test') {
+			exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+		}
+	}
+}
+

@@ -1,9 +1,5 @@
 package co.com.scheme.v1.config;
 
-import javax.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
-import java.util.Properties;
-
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +12,10 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+import java.util.Properties;
 
 @Configuration
 @EnableJpaRepositories(basePackages = "co.com.scheme.v1.repository", entityManagerFactoryRef = "dataBaseEntityManagerFactory", transactionManagerRef = "dataBaseTransactionManager")
@@ -42,12 +42,12 @@ public class DataBaseConfig {
 		
 		@Bean
 	    public DataSource DataSource() {
-	        DriverManagerDataSource thirdDataSource = new DriverManagerDataSource();
-	        thirdDataSource.setDriverClassName(driver);
-	        thirdDataSource.setUrl(url);
-	        thirdDataSource.setUsername(user);
-	        thirdDataSource.setPassword(password);
-	        return thirdDataSource;
+	        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+	        dataSource.setDriverClassName(driver);
+	        dataSource.setUrl(url);
+	        dataSource.setUsername(user);
+	        dataSource.setPassword(password);
+	        return dataSource;
 	    }
 
 	    @Bean(name = "dataBaseEntityManagerFactory")

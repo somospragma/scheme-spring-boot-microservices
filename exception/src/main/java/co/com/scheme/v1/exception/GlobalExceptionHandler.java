@@ -1,11 +1,9 @@
 package co.com.scheme.v1.exception;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import javax.persistence.EntityNotFoundException;
-import javax.validation.ConstraintViolationException;
+import co.com.scheme.v1.domain.response.Response;
+import co.com.scheme.v1.model.entityBuilder.*;
 
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.http.HttpHeaders;
@@ -27,11 +25,11 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-
-import co.com.scheme.v1.domain.response.Response;
-import co.com.scheme.v1.model.entityBuilder.ResponseEntityBuilder;
-
+import javax.persistence.EntityNotFoundException;
+import javax.validation.ConstraintViolationException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @ControllerAdvice
